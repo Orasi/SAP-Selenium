@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[2016-03-08 15:23:00.024 ::  <i><b>Login to Fiori</b></i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:05.759 ::  <font size = 2 color="green"><b><u>Assert True - Application opened and loaded successfully</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:14.996 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:15.037 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:24.231 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:24.267 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:25.944 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:25.977 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:27.708 :: <i> Syncing to element [ <b>@FindBy: xpath = //div[contains(@title,'Create Sales Order')]</b> ] to be <b>PRESENT</b> in DOM within [ 60 ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:29.202 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@title,'Create Sales Order')]</b>]<br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:29.242 :: <i>Syncing to CSS Property [<b>display</b> ] to contain [<b>block</b> ] in element [<b>@FindBy: id = loadingDialog</b> ] to be displayed within [ <b>3</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:29.443 :: <i>Syncing to CSS Property [<b>display</b> ] to contain [<b>none</b> ] in element [<b>@FindBy: id = loadingDialog</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:32.594 :: <i>Syncing to text [<b>Select Customer</b> ] in element [<b>@FindBy: xpath = //div[@role='dialog']/header</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:33.03 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Create Sales Order - Select Customer successfully</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:33.088 ::  Clear text from Element [ <b>@FindBy: xpath = //input[@type='search'] </b> ]<br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:33.393 ::  Send Keys [ <b>Becker Berlin</b> ] to Textbox [ <b>@FindBy: xpath = //input[@type='search'] </b> ]<br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:33.919 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be <b>VISIBLE<b> within [ 60 ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:34.027 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Sales Order Page successfully</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:34.05 :: <i>Syncing to text [<b>Becker Berlin</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:34.165 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Customer to Sales Order Page successfully</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:34.34 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//li[contains(@id,'PRODUCTS')]</b>]<br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:35.758 :: <i>Syncing to text [<b>Products</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:37.276 :: <i>Syncing to text [<b>Sunny Sunny</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerDetail')]/.//section[contains(@id,'ProductDetail-cont')]/.//div[contains(@id,'header-titleText-inner')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:38.735 :: <i>Syncing to text regular expression [<b>Standard</b> ] in element [<b>@FindBy: xpath = tbody/tr[1]/td[2]|tbody/tr[1]/th[2]|tr[1]/td[2]|tr[1]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:38.905 ::  <font size = 2 color="green"><b><u>Assert True - Price Class of [Standard] matched as expected</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:39.331 :: <i>Syncing to text regular expression [<b>Sony</b> ] in element [<b>@FindBy: xpath = tbody/tr[2]/td[2]|tbody/tr[2]/th[2]|tr[2]/td[2]|tr[2]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:39.443 ::  <font size = 2 color="green"><b><u>Assert True - Manufacturer of [Sony] matched as expected</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:39.899 :: <i>Syncing to text regular expression [<b>14 inch</b> ] in element [<b>@FindBy: xpath = tbody/tr[3]/td[2]|tbody/tr[3]/th[2]|tr[3]/td[2]|tr[3]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:39.995 ::  <font size = 2 color="green"><b><u>Assert True - Screen Size of [14 inch] matched as expected</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:40.602 :: <i>Syncing to text regular expression [<b>1024 x 768</b> ] in element [<b>@FindBy: xpath = tbody/tr[4]/td[2]|tbody/tr[4]/th[2]|tr[4]/td[2]|tr[4]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:40.713 ::  <font size = 2 color="green"><b><u>Assert True - Frequency of [1024 x 768] matched as expected</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:41.494 :: <i>Syncing to text regular expression [<b>0.2800000000000000</b> ] in element [<b>@FindBy: xpath = tbody/tr[5]/td[2]|tbody/tr[5]/th[2]|tr[5]/td[2]|tr[5]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:41.627 ::  <font size = 2 color="green"><b><u>Assert True - Dot pitch of [0.2800000000000000] matched as expected</font></u></b><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:42.514 :: <i>Syncing to text regular expression [<b>48.000000000000000</b> ] in element [<b>@FindBy: xpath = tbody/tr[6]/td[2]|tbody/tr[6]/th[2]|tr[6]/td[2]|tr[6]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+    </line>
+    <line>
+      <![CDATA[2016-03-08 15:23:42.61 ::  <font size = 2 color="green"><b><u>Assert True - Horizontal Frequency of [48.000000000000000] matched as expected</font></u></b><br />]]>
+    </line>
+  </reporter-output>
+  <suite name="TestingRadioGroups" duration-ms="52455" started-at="2016-03-08T20:22:51Z" finished-at="2016-03-08T20:23:43Z">
+    <groups>
+    </groups>
+    <test name="TestingRadioGroups" duration-ms="52455" started-at="2016-03-08T20:22:51Z" finished-at="2016-03-08T20:23:43Z">
+      <class name="com.fiori.Sandbox">
+        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.fiori.Sandbox@2b063d99]" name="setup" is-config="true" duration-ms="8867" started-at="2016-03-08T15:22:51Z" finished-at="2016-03-08T15:22:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[local]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[windows 10]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[demo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testLogin()[pri:0, instance:com.fiori.Sandbox@2b063d99]" name="testLogin" duration-ms="42634" started-at="2016-03-08T15:22:59Z" finished-at="2016-03-08T15:23:42Z">
+          <reporter-output>
+            <line>
+              <![CDATA[2016-03-08 15:23:00.024 ::  <i><b>Login to Fiori</b></i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:05.759 ::  <font size = 2 color="green"><b><u>Assert True - Application opened and loaded successfully</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:14.996 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:15.037 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:24.231 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:24.267 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:25.944 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:25.977 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:27.708 :: <i> Syncing to element [ <b>@FindBy: xpath = //div[contains(@title,'Create Sales Order')]</b> ] to be <b>PRESENT</b> in DOM within [ 60 ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:29.202 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@title,'Create Sales Order')]</b>]<br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:29.242 :: <i>Syncing to CSS Property [<b>display</b> ] to contain [<b>block</b> ] in element [<b>@FindBy: id = loadingDialog</b> ] to be displayed within [ <b>3</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:29.443 :: <i>Syncing to CSS Property [<b>display</b> ] to contain [<b>none</b> ] in element [<b>@FindBy: id = loadingDialog</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:32.594 :: <i>Syncing to text [<b>Select Customer</b> ] in element [<b>@FindBy: xpath = //div[@role='dialog']/header</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:33.03 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Create Sales Order - Select Customer successfully</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:33.088 ::  Clear text from Element [ <b>@FindBy: xpath = //input[@type='search'] </b> ]<br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:33.393 ::  Send Keys [ <b>Becker Berlin</b> ] to Textbox [ <b>@FindBy: xpath = //input[@type='search'] </b> ]<br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:33.919 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be <b>VISIBLE<b> within [ 60 ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:34.027 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Sales Order Page successfully</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:34.05 :: <i>Syncing to text [<b>Becker Berlin</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:34.165 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Customer to Sales Order Page successfully</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:34.34 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//li[contains(@id,'PRODUCTS')]</b>]<br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:35.758 :: <i>Syncing to text [<b>Products</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:37.276 :: <i>Syncing to text [<b>Sunny Sunny</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerDetail')]/.//section[contains(@id,'ProductDetail-cont')]/.//div[contains(@id,'header-titleText-inner')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:38.735 :: <i>Syncing to text regular expression [<b>Standard</b> ] in element [<b>@FindBy: xpath = tbody/tr[1]/td[2]|tbody/tr[1]/th[2]|tr[1]/td[2]|tr[1]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:38.905 ::  <font size = 2 color="green"><b><u>Assert True - Price Class of [Standard] matched as expected</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:39.331 :: <i>Syncing to text regular expression [<b>Sony</b> ] in element [<b>@FindBy: xpath = tbody/tr[2]/td[2]|tbody/tr[2]/th[2]|tr[2]/td[2]|tr[2]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:39.443 ::  <font size = 2 color="green"><b><u>Assert True - Manufacturer of [Sony] matched as expected</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:39.899 :: <i>Syncing to text regular expression [<b>14 inch</b> ] in element [<b>@FindBy: xpath = tbody/tr[3]/td[2]|tbody/tr[3]/th[2]|tr[3]/td[2]|tr[3]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:39.995 ::  <font size = 2 color="green"><b><u>Assert True - Screen Size of [14 inch] matched as expected</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:40.602 :: <i>Syncing to text regular expression [<b>1024 x 768</b> ] in element [<b>@FindBy: xpath = tbody/tr[4]/td[2]|tbody/tr[4]/th[2]|tr[4]/td[2]|tr[4]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:40.713 ::  <font size = 2 color="green"><b><u>Assert True - Frequency of [1024 x 768] matched as expected</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:41.494 :: <i>Syncing to text regular expression [<b>0.2800000000000000</b> ] in element [<b>@FindBy: xpath = tbody/tr[5]/td[2]|tbody/tr[5]/th[2]|tr[5]/td[2]|tr[5]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:41.627 ::  <font size = 2 color="green"><b><u>Assert True - Dot pitch of [0.2800000000000000] matched as expected</font></u></b><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:42.514 :: <i>Syncing to text regular expression [<b>48.000000000000000</b> ] in element [<b>@FindBy: xpath = tbody/tr[6]/td[2]|tbody/tr[6]/th[2]|tr[6]/td[2]|tr[6]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br />]]>
+            </line>
+            <line>
+              <![CDATA[2016-03-08 15:23:42.61 ::  <font size = 2 color="green"><b><u>Assert True - Horizontal Frequency of [48.000000000000000] matched as expected</font></u></b><br />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method status="PASS" signature="closeSession(org.testng.ITestContext)[pri:0, instance:com.fiori.Sandbox@2b063d99]" name="closeSession" is-config="true" duration-ms="830" started-at="2016-03-08T15:23:42Z" finished-at="2016-03-08T15:23:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@4754c25c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSession -->
+      </class> <!-- com.fiori.Sandbox -->
+    </test> <!-- TestingRadioGroups -->
+  </suite> <!-- TestingRadioGroups -->
+</testng-results>

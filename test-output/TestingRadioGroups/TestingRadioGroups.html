@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>TestNG:  TestingRadioGroups</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>TestingRadioGroups</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Mar 08 15:22:51 EST 2016</td>
+</tr>
+<tr><td>Total time:</td><td>52 seconds (52455 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.fiori.Sandbox.testLogin()'><b>testLogin</b><br>Test class: com.fiori.Sandbox<br/>
+<a href="#Output-128103882" onClick='toggleBox("Output-128103882", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-128103882" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-128103882">
+2016-03-08 15:23:00.024 ::  <i><b>Login to Fiori</b></i><br /><br/>
+2016-03-08 15:23:05.759 ::  <font size = 2 color="green"><b><u>Assert True - Application opened and loaded successfully</font></u></b><br /><br/>
+2016-03-08 15:23:14.996 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br /><br/>
+2016-03-08 15:23:15.037 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:24.231 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br /><br/>
+2016-03-08 15:23:24.267 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:25.944 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b>]<br /><br/>
+2016-03-08 15:23:25.977 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..</b> ] to be <b>HIDDEN</b> within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:27.708 :: <i> Syncing to element [ <b>@FindBy: xpath = //div[contains(@title,'Create Sales Order')]</b> ] to be <b>PRESENT</b> in DOM within [ 60 ] seconds.</i><br /><br/>
+2016-03-08 15:23:29.202 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@title,'Create Sales Order')]</b>]<br /><br/>
+2016-03-08 15:23:29.242 :: <i>Syncing to CSS Property [<b>display</b> ] to contain [<b>block</b> ] in element [<b>@FindBy: id = loadingDialog</b> ] to be displayed within [ <b>3</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:29.443 :: <i>Syncing to CSS Property [<b>display</b> ] to contain [<b>none</b> ] in element [<b>@FindBy: id = loadingDialog</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:32.594 :: <i>Syncing to text [<b>Select Customer</b> ] in element [<b>@FindBy: xpath = //div[@role='dialog']/header</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:33.03 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Create Sales Order - Select Customer successfully</font></u></b><br /><br/>
+2016-03-08 15:23:33.088 ::  Clear text from Element [ <b>@FindBy: xpath = //input[@type='search'] </b> ]<br /><br/>
+2016-03-08 15:23:33.393 ::  Send Keys [ <b>Becker Berlin</b> ] to Textbox [ <b>@FindBy: xpath = //input[@type='search'] </b> ]<br /><br/>
+2016-03-08 15:23:33.919 :: <i>Syncing to element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be <b>VISIBLE<b> within [ 60 ] seconds.</i><br /><br/>
+2016-03-08 15:23:34.027 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Sales Order Page successfully</font></u></b><br /><br/>
+2016-03-08 15:23:34.05 :: <i>Syncing to text [<b>Becker Berlin</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:34.165 ::  <font size = 2 color="green"><b><u>Assert True - Loaded Customer to Sales Order Page successfully</font></u></b><br /><br/>
+2016-03-08 15:23:34.34 :: Clicked Button [ <b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//li[contains(@id,'PRODUCTS')]</b>]<br /><br/>
+2016-03-08 15:23:35.758 :: <i>Syncing to text [<b>Products</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerMaster')]/.//label[contains(@id,'MasterListHeaderTitle')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:37.276 :: <i>Syncing to text [<b>Sunny Sunny</b> ] in element [<b>@FindBy: xpath = //div[contains(@class,'sapMSplitContainerDetail')]/.//section[contains(@id,'ProductDetail-cont')]/.//div[contains(@id,'header-titleText-inner')]</b> ] to be displayed within [ <b>60</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:38.735 :: <i>Syncing to text regular expression [<b>Standard</b> ] in element [<b>@FindBy: xpath = tbody/tr[1]/td[2]|tbody/tr[1]/th[2]|tr[1]/td[2]|tr[1]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:38.905 ::  <font size = 2 color="green"><b><u>Assert True - Price Class of [Standard] matched as expected</font></u></b><br /><br/>
+2016-03-08 15:23:39.331 :: <i>Syncing to text regular expression [<b>Sony</b> ] in element [<b>@FindBy: xpath = tbody/tr[2]/td[2]|tbody/tr[2]/th[2]|tr[2]/td[2]|tr[2]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:39.443 ::  <font size = 2 color="green"><b><u>Assert True - Manufacturer of [Sony] matched as expected</font></u></b><br /><br/>
+2016-03-08 15:23:39.899 :: <i>Syncing to text regular expression [<b>14 inch</b> ] in element [<b>@FindBy: xpath = tbody/tr[3]/td[2]|tbody/tr[3]/th[2]|tr[3]/td[2]|tr[3]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:39.995 ::  <font size = 2 color="green"><b><u>Assert True - Screen Size of [14 inch] matched as expected</font></u></b><br /><br/>
+2016-03-08 15:23:40.602 :: <i>Syncing to text regular expression [<b>1024 x 768</b> ] in element [<b>@FindBy: xpath = tbody/tr[4]/td[2]|tbody/tr[4]/th[2]|tr[4]/td[2]|tr[4]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:40.713 ::  <font size = 2 color="green"><b><u>Assert True - Frequency of [1024 x 768] matched as expected</font></u></b><br /><br/>
+2016-03-08 15:23:41.494 :: <i>Syncing to text regular expression [<b>0.2800000000000000</b> ] in element [<b>@FindBy: xpath = tbody/tr[5]/td[2]|tbody/tr[5]/th[2]|tr[5]/td[2]|tr[5]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:41.627 ::  <font size = 2 color="green"><b><u>Assert True - Dot pitch of [0.2800000000000000] matched as expected</font></u></b><br /><br/>
+2016-03-08 15:23:42.514 :: <i>Syncing to text regular expression [<b>48.000000000000000</b> ] in element [<b>@FindBy: xpath = tbody/tr[6]/td[2]|tbody/tr[6]/th[2]|tr[6]/td[2]|tr[6]/th[2]</b> ] to be displayed within [ <b>1</b> ] seconds.</i><br /><br/>
+2016-03-08 15:23:42.61 ::  <font size = 2 color="green"><b><u>Assert True - Horizontal Frequency of [48.000000000000000] matched as expected</font></u></b><br /><br/>
+</div>
+</td>
+<td></td>
+<td>42</td>
+<td>com.fiori.Sandbox@2b063d99</td></tr>
+</table><p>
+</body>
+</html>
