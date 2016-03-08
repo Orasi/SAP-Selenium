@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestingRadioGroups]" parallel="instances">
+  <parameter name="operatingSystem" value="windows 10"/>
+  <parameter name="environment" value="demo"/>
+  <parameter name="browserVersion" value=""/>
+  <parameter name="runLocation" value="local"/>
+  <parameter name="browserUnderTest" value="firefox"/>
+  <test name="TestingRadioGroups(failed)" parallel="instances">
+    <classes>
+      <class name="com.fiori.Sandbox">
+        <methods>
+          <include name="closeSession"/>
+          <include name="setup"/>
+          <include name="testLogin"/>
+        </methods>
+      </class> <!-- com.fiori.Sandbox -->
+    </classes>
+  </test> <!-- TestingRadioGroups(failed) -->
+</suite> <!-- Failed suite [TestingRadioGroups] -->
