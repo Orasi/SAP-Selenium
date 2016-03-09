@@ -151,4 +151,27 @@ public class WindowHandler {
 		}
 		return true;
 	}
+	
+	/**
+	 * Use FluentWait to halt the script until URL contains expected text
+	 * @version Created 01/15/2016
+	 * @author 	Justin Phlegar
+	 * @param 	driver, partialUrl
+	 * @return 	true/false
+	 */
+	public static boolean waitUntilURLContains(WebDriver driver, String partialUrl, int timeoutInSeconds){	
+		//Adding for backwards compatibility for WebDriver
+		if(driver instanceof OrasiDriver){
+			timeoutInSeconds = ((OrasiDriver)driver).getPageTimeout();
+			driver = ((OrasiDriver)driver).getWebDriver();
+		}
+		
+		try{
+			WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+			wait.until(ExpectedConditions.urlContains(partialUrl));
+		}catch(TimeoutException e){
+			return false;
+		}
+		return true;
+	}
 }

@@ -1050,6 +1050,7 @@ public class PageLoaded {
 	 */
 	private static boolean webElementTextPresent(OrasiDriver driver, WebElement element, String text) {
 	    WebDriverWait wait = new WebDriverWait(driver, 0);
+	   // System.out.println(text);
 		try {
 
 			if(Highlight.getDebugMode()) Highlight.highlightDebug(driver, element);

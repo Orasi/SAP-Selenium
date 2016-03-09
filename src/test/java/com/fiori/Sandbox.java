@@ -7,6 +7,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.fiori.logisticsSD.SelectCustomerPage;
+import com.fiori.logisticsSD.createSalesOrder.SOShoppingCartPage;
 import com.fiori.logisticsSD.createSalesOrder.SalesOrdersPage;
 import com.orasi.utils.OrasiDriver;
 import com.orasi.utils.TestEnvironment;
@@ -32,17 +33,17 @@ public class Sandbox extends TestEnvironment {
     @BeforeTest( alwaysRun=true)
     @Parameters({ "runLocation", "browserUnderTest", "browserVersion", "operatingSystem", "environment" })
     public void setup(String runLocation, String browserUnderTest, String browserVersion, String operatingSystem, String environment) {
-	setApplicationUnderTest("Fiori");
-	setBrowserUnderTest(browserUnderTest);
-	setBrowserVersion(browserVersion);
-	setOperatingSystem(operatingSystem);
-	setRunLocation(runLocation);
-	setTestEnvironment(environment);
-	setThreadDriver(true);
-	testName="Sandbox";
-	testStart(testName);
-	driver = getDriver();
-	Highlight.setDebugMode(true);
+		setApplicationUnderTest("Fiori");
+		setBrowserUnderTest(browserUnderTest);
+		setBrowserVersion(browserVersion);
+		setOperatingSystem(operatingSystem);
+		setRunLocation(runLocation);
+		setTestEnvironment(environment);
+		setThreadDriver(true);
+		testName="Sandbox";
+		testStart(testName);
+		driver = getDriver();
+		Highlight.setDebugMode(true);
     }
 
     @AfterMethod( alwaysRun=true)
@@ -54,32 +55,41 @@ public class Sandbox extends TestEnvironment {
    // @Stories("Logging in will land me on the Homepage")
    // @Severity(SeverityLevel.BLOCKER)
    // @Title("Login - Login with correct information")
-   @Test()
+    @Test()
     public void testLogin() {
 	
-	TestReporter.log("Login to Fiori");
-	LaunchPad launchPad = new LaunchPad(driver);
-	TestReporter.assertTrue(launchPad.pageLoaded(),"Application opened and loaded successfully");
-	launchPad.handleEula();
-	launchPad.logisticsSD_CreateSalesOrder();
-	
-	SelectCustomerPage selectCustomerPage = new SelectCustomerPage(driver);
-	TestReporter.assertTrue(selectCustomerPage.pageLoaded(),"Loaded Create Sales Order - Select Customer successfully");
-	selectCustomerPage.searchForCustomer("Becker Berlin");
-	selectCustomerPage.selectCustomer();
-	
-	SalesOrdersPage salesOrderPage = new SalesOrdersPage(driver);
-	TestReporter.assertTrue(salesOrderPage.pageLoaded(),"Loaded Sales Order Page successfully");
-	TestReporter.assertTrue(salesOrderPage.customerLoaded("Becker Berlin"),"Loaded Customer to Sales Order Page successfully");
-	salesOrderPage.showProducts();
-	salesOrderPage.selectItemByName("Sunny Sunny");
-	
-	TestReporter.assertTrue(salesOrderPage.getInformationDetails("Price Class", "Standard"),"Price Class of [Standard] matched as expected");
-	TestReporter.assertTrue(salesOrderPage.getInformationDetails("Manufacturer", "Sony"),"Manufacturer of [Sony] matched as expected");
-	TestReporter.assertTrue(salesOrderPage.getInformationDetails("Screen Size (inches)", "14 inch"),"Screen Size of [14 inch] matched as expected");
-	TestReporter.assertTrue(salesOrderPage.getInformationDetails("Frequency", "1024 x 768"),"Frequency of [1024 x 768] matched as expected");
-	TestReporter.assertTrue(salesOrderPage.getInformationDetails("Dot pitch", "0.2800000000000000"),"Dot pitch of [0.2800000000000000] matched as expected");
-	TestReporter.assertTrue(salesOrderPage.getInformationDetails("Horizontal Frequency (Khz)", "48.000000000000000"),"Horizontal Frequency of [48.000000000000000] matched as expected");
-	
+    	TestReporter.log("Login to Fiori");
+		LaunchPad launchPad = new LaunchPad(driver);
+		TestReporter.assertTrue(launchPad.pageLoaded(),"Application opened and loaded successfully");
+		launchPad.handleEula();
+		launchPad.logisticsSD_CreateSalesOrder();
+		
+		SelectCustomerPage selectCustomerPage = new SelectCustomerPage(driver);
+		TestReporter.assertTrue(selectCustomerPage.pageLoaded(),"Loaded Create Sales Order - Select Customer successfully");
+		selectCustomerPage.searchForCustomer("Becker Berlin");
+		selectCustomerPage.selectCustomer();
+		
+		SalesOrdersPage salesOrderPage = new SalesOrdersPage(driver);
+		TestReporter.assertTrue(salesOrderPage.pageLoaded(),"Loaded Sales Order Page successfully");
+		TestReporter.assertTrue(salesOrderPage.customerLoaded("Becker Berlin"),"Loaded Customer to Sales Order Page successfully");
+		salesOrderPage.showProducts();
+		salesOrderPage.selectItemByName("Sunny Sunny");
+		salesOrderPage.addProductToCart();
+		
+		salesOrderPage.selectItemByName("REA Printer with battery");
+		salesOrderPage.addProductToCart();
+		
+		driver.data().add(salesOrderPage.storeInfo());
+		driver.data().printData();
+		
+		salesOrderPage.goToShoppingCart();
+		
+		SOShoppingCartPage shoppingCart = new SOShoppingCartPage(driver);
+		TestReporter.assertTrue(shoppingCart.pageLoaded(),"Loaded Shopping Cart successfully");
+		TestReporter.assertTrue(shoppingCart.validateNumberOfItems(),"Number of items in cart matched");
+		shoppingCart.setDeliveryDate("10");
+		shoppingCart.updateItemQuantity("Sunny Sunny", "8");
+		shoppingCart.updateItemDelivery("REA Printer with battery", "45");
+		System.out.println();
    }
 }
