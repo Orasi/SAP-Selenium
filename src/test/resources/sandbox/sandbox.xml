@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestingRadioGroups" parallel="instances" thread-count="5">
+	<parameter name="browserUnderTest" value="firefox" />
+	<parameter name="environment" value="demo" />
+	<parameter name="runLocation" value="local" />
+	<parameter name="browserVersion" value="" />
+	<parameter name="operatingSystem" value="windows 10" />
+	<test name="TestingRadioGroups">
+		<classes>
+			<class name="com.fiori.Sandbox" />
+		</classes>
+	</test> <!-- TestingRadioGroups -->
+</suite> <!-- TestingRadioGroups -->
