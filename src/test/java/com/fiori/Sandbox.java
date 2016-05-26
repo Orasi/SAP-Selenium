@@ -1,6 +1,7 @@
 package com.fiori;
 
 import org.testng.ITestContext;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -47,7 +48,7 @@ public class Sandbox extends TestEnvironment {
     }
 
     @AfterMethod( alwaysRun=true)
-    public void closeSession(ITestContext test) {
+    public void closeSession(ITestResult test) {
 	endTest(driver, test);
     }    
 
