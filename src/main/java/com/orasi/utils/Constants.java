@@ -42,7 +42,7 @@ public class Constants {
     final static public int DEFAULT_GLOBAL_DRIVER_TIMEOUT = 30;
 
     /** The timeout (seconds) for finding web elements on a page, shouldn't be too long */
-    static public int ELEMENT_TIMEOUT = 60;
+    static public int ELEMENT_TIMEOUT = 20;
     
     /** The timeout (seconds) for page/DOM/transitions, should also be a generous */
     static public int PAGE_TIMEOUT = 10;

@@ -16,6 +16,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 
 import com.orasi.core.interfaces.Element;
+import com.orasi.utils.debugging.Highlight;
 import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.saucerest.SauceREST;
 
@@ -346,6 +347,7 @@ public class TestEnvironment {
 		// Uncomment the following line to have TestReporter outputs output to
 		// the console
 		TestReporter.setPrintToConsole(true);
+	    	Highlight.setDebugMode(true);
 		//setThreadDriver(true);
 		setTestName(testName);
 		driverSetup();

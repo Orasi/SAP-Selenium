@@ -96,33 +96,40 @@ public class PageLoaded {
 	public static boolean isElementLoaded(Class clazz, OrasiDriver oDriver, Element obj, int timeout) {
 	   	int count = 0;
 		int driverTimeout = oDriver.getElementTimeout();
+		boolean found = true;
 		// set the timeout for looking for an element to 1 second as we are
 		// doing a loop and then refreshing the elements
 		oDriver.setElementTimeout(1, TimeUnit.MILLISECONDS);
-
-		try {
-
-			while (!obj.elementWired()) {
-			    if (count == timeout) {
-				break;
-			    } else {
-				count++;
-				initializePage(clazz, oDriver);
-			    }
-			}
-			
-		} catch (NullPointerException | NoSuchElementException | StaleElementReferenceException | PageInitialization e){
-		    return false;
-		} finally{
-    			// set the timeout for looking for an element back to the default timeout
-    			oDriver.setElementTimeout(driverTimeout, TimeUnit.SECONDS);
-		}
 		
-		if (count < timeout) {
-			return true;
-		} else {
-			return false;
-		}
+		do{
+        		try {
+        
+        			while (!obj.elementWired()) {
+        			    if (count < timeout) {
+        				break;
+        			    } else {
+        				count++;
+        				Sleeper.sleep(1000);
+        				initializePage(clazz, oDriver);
+        			    }
+        			}
+        			
+        			break;
+        		} catch ( NoSuchElementException | StaleElementReferenceException e){
+        		    obj = oDriver.findElement(obj.getElementLocator());
+        		    TestReporter.log("Reloading element " + obj.getElementIdentifier());
+        		}catch( NullPointerException | PageInitialization e2){};
+        		
+        		if (count >= timeout) {
+        		    found = false;
+        		    break;
+        		} 
+    		}while(true);
+		
+		
+		// set the timeout for looking for an element back to the default timeout
+		oDriver.setElementTimeout(driverTimeout, TimeUnit.SECONDS);
+		return found;
 	}
 
 	/**
@@ -363,7 +370,7 @@ public class PageLoaded {
 		long timeLapse;
 		StopWatch stopwatch = new StopWatch();
 		TestReporter.interfaceLog("<i>Syncing to element [<b>@FindBy: " + element.getElementLocatorInfo()
-				+ "</b> ] to be <b>VISIBLE<b> within [ " + timeout + " ] seconds.</i>");
+				+ "</b> ] to be <b>VISIBLE</b> within [ <b>" + timeout + " </b>] seconds.</i>");
 		int currentTimeout = driver.getElementTimeout();
 		driver.setElementTimeout(1, TimeUnit.MILLISECONDS);
 
@@ -438,7 +445,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog("<i>Element [<b>@FindBy: " + element.getElementLocatorInfo()
 					+ " </b>] is not <b>HIDDEN</b> on the page after [ "
 					+ (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -502,7 +509,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog("<i>Element [<b>@FindBy: " + element.getElementLocatorInfo()
 					+ " </b>] is not <b>ENABLED</b> on the page after [ "
 					+ (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -567,7 +574,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog("<i>Element [<b>@FindBy: " + element.getElementLocatorInfo()
 					+ " </b>] is not <b>DISABLED</b> on the page after [ "
 					+ (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -631,7 +638,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog(
 					"<i>Element [<b>@FindBy: " + element.getElementLocatorInfo() + " </b>] did not contain the text [ " + text
 							+ " ] after [ " + (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -696,7 +703,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog(
 					"<i>Element [<b>@FindBy: " + element.getElementLocatorInfo() + " </b>] did not contain the text [ " + regex
 							+ " ] after [ " + (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -761,7 +768,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog(
 					"<i>Element [<b>@FindBy: " + element.getElementLocatorInfo() + " </b>] attribute [<b>" + attribute + "</b> ] did not contain the text [ " + value
 							+ " ] after [ " + (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -826,7 +833,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog(
 					"<i>Element [<b>@FindBy: " + element.getElementLocatorInfo() + " </b>] attribute [<b>" + attribute + "</b> ] did not match the regular expression of [ " + regex
 							+ " ] after [ " + (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -891,7 +898,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog(
 					"<i>Element [<b>@FindBy: " + element.getElementLocatorInfo() + " </b>] CSS Property [<b>" + cssProperty  + "</b> ] did not contain the text [ " + value
 							+ " ] after [ " + (timeLapse) / 1000.0 + " ] seconds.</i>");
@@ -955,7 +962,7 @@ public class PageLoaded {
 
 		driver.setElementTimeout(currentTimeout, TimeUnit.SECONDS);
 		if (!found && failTestOnSync) {
-		    	Highlight.highlightError(driver, element);
+		    	Highlight.highlightDebug(driver, element);
 			TestReporter.interfaceLog(
 					"<i>Element [<b>@FindBy: " + element.getElementLocatorInfo() + " </b>] CSS Property [<b>" + cssProperty  + "</b> ] did not match the regular expression of [ " + regex
 							+ " ] after [ " + (timeLapse) / 1000.0 + " ] seconds.</i>");

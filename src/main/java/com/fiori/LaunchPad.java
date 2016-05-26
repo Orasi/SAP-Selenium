@@ -1,18 +1,25 @@
 package com.fiori;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.fiori.logisticsSD.SelectCustomerPage;
 import com.orasi.core.interfaces.Button;
 import com.orasi.core.interfaces.Element;
 import com.orasi.core.interfaces.impl.internal.ElementFactory;
 import com.orasi.utils.OrasiDriver;
+import com.orasi.utils.Sleeper;
 
 public class LaunchPad extends BasePage{
     private OrasiDriver driver = null;
     
     @FindBy(className="eula") private Element eleEULA;
-    @FindBy(xpath="//div[contains(@class,'eula')]/footer/button/div/span[text()='I agree']/../..") private Button btnEulaIAgree;
+    @FindBy(xpath="//span[text()='I agree']/../..") private Button btnEulaIAgree;
     	
     //Cross elements
     @FindBy(xpath = "//div[@class='sapUshellTileBase' and contains(@title,'My Inbox')]") private Button btnMyInbox;
@@ -68,7 +75,7 @@ public class LaunchPad extends BasePage{
     @FindBy(xpath = "//div[contains(@title,'My Spend')]") private Button btnMySpend;
     @FindBy(xpath = "//div[contains(@title,'Cash Position - Today')]") private Button btnCashPosition;
     @FindBy(xpath = "//div[contains(@title,'Liquidity Forecast')]") private Button btnLiquidityForecast;
-    @FindBy(xpath = "//div[contains(@title,'DSO')]") private Button btn;
+    @FindBy(xpath = "//div[contains(@title,'DSO')]") private Button btnDSO;
     
     // *********************
     // ** Build page area **
@@ -79,7 +86,7 @@ public class LaunchPad extends BasePage{
     }
 	
     public boolean pageLoaded(){
-	return driver.page().isDomComplete();
+	return driver.page().pageLoaded(this.getClass(), eleEULA);
     }
 	
     // *****************************************
@@ -87,10 +94,21 @@ public class LaunchPad extends BasePage{
     // *****************************************
 
     public void handleEula(){	
+	int currentTimeout = driver.getElementTimeout();
+	boolean eulaNotGone = true;
+	Sleeper.sleep(5000);
 	do {
-	    btnEulaIAgree.focus();
+	   // driver.page().pageLoaded(getClass(), btnEulaIAgree);
+	 //   
+	 //   btnEulaIAgree.focus();
 	    btnEulaIAgree.click();
-	} while (!btnEulaIAgree.syncHidden(1, false));
+	    try{
+		driver.setElementTimeout(1);
+		eulaNotGone = driver.findElement(By.className("eula")).isDisplayed();
+		}catch(StaleElementReferenceException | NoSuchElementException throwAway){eulaNotGone = false;}
+	    
+	} while (eulaNotGone);
+	driver.setElementTimeout(currentTimeout);
     }
     
     public void logisticsSD_CreateSalesOrder(){

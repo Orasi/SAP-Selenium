@@ -225,7 +225,7 @@ public class OrasiDriver implements WebDriver, JavaScriptExecutor, TakesScreensh
 		try {
 			return findWebElements(by);
 		} catch (NoSuchElementException nse) {
-			TestReporter.logFailure("No such Element with context " + by.toString());
+			//TestReporter.logFailure("No such Element with context " + by.toString());
 			throw new NoSuchElementException(nse.getMessage());
 		}
 	}
@@ -241,7 +241,7 @@ public class OrasiDriver implements WebDriver, JavaScriptExecutor, TakesScreensh
 		try {
 			return driver.findElements(by);
 		} catch (NoSuchElementException nse) {
-			TestReporter.logFailure("No such WebElement with context: " + by.toString());
+			//TestReporter.logFailure("No such WebElement with context: " + by.toString());
 			throw new NoSuchElementException(nse.getMessage());
 		}
 	}
@@ -258,7 +258,7 @@ public class OrasiDriver implements WebDriver, JavaScriptExecutor, TakesScreensh
 		try {
 			return new ElementImpl(driver.findElement(by));
 		} catch (NoSuchElementException nse) {
-			TestReporter.logFailure("No such Element with context: " + by.toString());
+			//TestReporter.logFailure("No such Element with context: " + by.toString());
 			throw new NoSuchElementException(nse.getMessage());
 		}
 	}

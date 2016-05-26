@@ -1,8 +1,10 @@
 package com.fiori.logisticsSD.createSalesOrder;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.fiori.BasePage;
@@ -12,6 +14,7 @@ import com.orasi.core.interfaces.Element;
 import com.orasi.core.interfaces.Label;
 import com.orasi.core.interfaces.Textbox;
 import com.orasi.core.interfaces.Webtable;
+import com.orasi.core.interfaces.impl.ButtonImpl;
 import com.orasi.core.interfaces.impl.ElementImpl;
 import com.orasi.core.interfaces.impl.internal.ElementFactory;
 import com.orasi.utils.OrasiDriver;
@@ -74,22 +77,24 @@ public class SalesOrdersPage extends BasePage{
     	txtSidePanelSearch.set(orderOrProduct);
     }
     
-    public void selectItemByName(String name){
+    public void selectItemByName(Object... args){
+	for(Object name : args){
 		driver.findLabel(By.xpath(xpathSidePanel + "//ul/li[contains(@class,'sapMObjLItem')]/.//div[@class='sapMTextMaxLine' and text()='" + name +"']")).click();
-//		String productId = driver.findLabel(By.xpath(xpathSidePanel + "//ul/li[contains(@class,'sapMObjLItem')]/.//div[@class='sapMTextMaxLine' and text()='" + name +"']/../../../.././/div[@class='sapMObjectAttributeDiv']/span")).getText();
-//		WindowHandler.waitUntilURLContains(driver, productId, 5);
-//		initialize();
 		Sleeper.sleep(2000);
-		eleItemName.syncTextInElement(name);
+		eleItemName.syncTextInElement(name.toString());
+		addProductToCart();
+	}
     }
     
     public void showOrders(){
+		btnShowOrders.syncVisible();
 		btnShowOrders.click();
 		driver.page().isDomComplete();
 		lblCustomerName.syncTextInElement("Sales Orders");
     }
     
     public void showProducts(){
+		btnShowProducts.syncVisible();
 		btnShowProducts.click();
 		driver.page().isDomComplete();
 		lblCustomerName.syncTextInElement("Products");
@@ -102,10 +107,10 @@ public class SalesOrdersPage extends BasePage{
     }
     
     public void addProductToCart(){
-    	int itemsInCartPrior = Integer.valueOf(btnCart.getText());
+    	int itemsInCartPrior = Integer.valueOf(getCart().getText());
     	btnAddToCart.click();
     	eleAddedItemsMessage.syncTextInElement("Your products are saved to the cart", 3, false);
-    	int itemsInCartAfter = Integer.valueOf(btnCart.getText());
+    	int itemsInCartAfter = Integer.valueOf(getCart().getText());
     	TestReporter.assertEquals(itemsInCartPrior + 1, itemsInCartAfter, "Number of items in cart updated");
     	
     	String itemName = eleItemName.getText();
@@ -115,12 +120,26 @@ public class SalesOrdersPage extends BasePage{
     }
     
     public void goToShoppingCart(){
-    	btnCart.click();
+	getCart().click();
     	WindowHandler.waitUntilURLContains(driver, "soCreateCart", 10);
     }
     
     public HashMap<String, Object> storeInfo(){
-    	dataMap.put("Product Details: Items in Shopping Cart" , btnCart.getText());
+    	dataMap.put("Product Details: Items in Shopping Cart" , getCart().getText());
        	return dataMap;
-    };
+    }
+    
+    private Button getCart(){
+	if(btnCart.syncHidden(0, false)) {
+	    List<WebElement> cartButtons = driver.findElements(By.xpath("//button[contains(@id,'CART_BUTTON')]"));
+	    for (WebElement cartButton : cartButtons){
+		Button button = new ButtonImpl(cartButton);
+		if(button.syncVisible(0,false)) {
+		    btnCart = button;
+		    return btnCart;
+		}
+	    }
+	}
+	return btnCart;
+    }
 }
