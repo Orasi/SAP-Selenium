@@ -63,11 +63,11 @@ public class Sandbox extends TestEnvironment {
     	launchPad.handleEula();
     	launchPad.logisticsSD_CreateSalesOrder();
     	
-    	/*SelectCustomerPage selectCustomerPage = new SelectCustomerPage(driver);
+    	SelectCustomerPage selectCustomerPage = new SelectCustomerPage(driver);
     	TestReporter.assertTrue(selectCustomerPage.pageLoaded(),"Loaded Create Sales Order - Select Customer successfully");
     	selectCustomerPage.searchForCustomer("Becker Berlin");
     	selectCustomerPage.selectCustomer();
-    	*/
+    	
     	
     	SalesOrdersPage salesOrderPage = new SalesOrdersPage(driver);
     	TestReporter.assertTrue(salesOrderPage.pageLoaded(),"Loaded Sales Order Page successfully");
