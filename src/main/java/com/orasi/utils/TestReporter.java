@@ -13,14 +13,47 @@ import org.testng.Reporter;
 import com.orasi.utils.date.SimpleDate;
 
 public class TestReporter {
-    private static boolean printToConsole = false;
+    private static boolean printToConsole = true;
+    private static boolean printClassPath= true;
     
-    private static String getTimestamp(){
-   	return SimpleDate.getTimestamp().toString() + " :: ";
+    private static String getTimestamp() {
+	String date = SimpleDate.getTimestamp().toString().substring(11);
+	return  date + " :: ";
     }
     
     private static String trimHtml(String log){
 	return log.replaceAll("<[^>]*>", "");
+    }
+	
+    private static String getClassPath(){
+	String path = " > ";
+	if(getPrintFullClassPath()){
+        	StackTraceElement[] elements = Thread.currentThread().getStackTrace();
+        	int x = 0;
+        	String filename = "";
+        	for(StackTraceElement element : elements){
+        		filename = element.getClassName().toString();
+        		if(x == 0 || x == 1 || x == 2) {
+        			x++;
+        			continue;
+        		}else if(!filename.contains("sun.reflect")  &&
+        			!filename.contains("com.orasi.utils.TestReporter") &&
+        			!filename.contains("com.orasi.utils.PageLoaded") &&
+        			!filename.contains("java.lang.reflect") &&
+        			!filename.contains("java.lang.Thread") &&
+        			!filename.contains("com.orasi.core.interfaces") &&
+        			!filename.contains("com.sun.proxy") && //
+        			!filename.contains("org.testng.internal") &&
+        			!filename.contains("java.util.concurrent.ThreadPoolExecutor") &&
+        			!filename.contains("com.orasi.utils.debugging"))
+        		{
+        			path = element.getClassName()+"#"+element.getMethodName();
+        			break;
+        		}
+        		
+        	}
+	}
+	return path + " > ";
     }
     
     public static void setPrintToConsole(boolean printToConsole){
@@ -29,6 +62,15 @@ public class TestReporter {
     
     public static boolean getPrintToConsole(){
 	return printToConsole;
+    }
+    
+    
+    public static void setPrintFullClassPath(boolean printClassPath){
+	TestReporter.printClassPath = printClassPath;
+    }
+    
+    public static boolean getPrintFullClassPath(){
+	return printClassPath;
     }
     
     public static void logStep(String step) {
@@ -50,23 +92,23 @@ public class TestReporter {
     }
 
     public static void interfaceLog(String message) {
-	Reporter.log(getTimestamp() + message + "<br />");
-	if(getPrintToConsole()) System.out.println(getTimestamp() + trimHtml(message.trim()));
+	Reporter.log(getTimestamp() + getClassPath() + message + "<br />");
+	if(getPrintToConsole()) System.out.println(getTimestamp() + getClassPath() + trimHtml(message.trim()));
     }
     
     public static void interfaceLog(String message, boolean failed) {
-	Reporter.log(getTimestamp() + "<font size = 2 color=\"red\">" + message + "</font><br />");
-	if(getPrintToConsole()) System.out.println(getTimestamp() + trimHtml(message.trim()));
+	Reporter.log(getTimestamp() + "<font size = 2 color=\"red\">" + getClassPath() + message + "</font><br />");
+	if(getPrintToConsole()) System.out.println(getTimestamp() + getClassPath() + trimHtml(message.trim()));
     }
 
     public static void log(String message) {
-	Reporter.log(getTimestamp() + " <i><b>" + message + "</b></i><br />");
-	if(getPrintToConsole()) System.out.println(getTimestamp() + trimHtml(message));
+	Reporter.log(getTimestamp() + " <i><b>" + getClassPath() + message + "</b></i><br />");
+	if(getPrintToConsole()) System.out.println(getTimestamp() + getClassPath() + trimHtml(message));
     }
     
     public static void logFailure(String message){
-	Reporter.log(getTimestamp() + " <font size = 2 color=\"red\"><b><u> FAILURE: " + message + "</font></u></b><br />");
-	if(getPrintToConsole()) System.out.println(getTimestamp() + trimHtml( "FAILURE: " + message ));
+	Reporter.log(getTimestamp() + " <font size = 2 color=\"red\"><b><u> FAILURE: " +getClassPath() +  message + "</font></u></b><br />");
+	if(getPrintToConsole()) System.out.println(getTimestamp() + trimHtml( "FAILURE: " + getClassPath() + message ));
     }
 
     public static void assertTrue(boolean condition, String description) {	
