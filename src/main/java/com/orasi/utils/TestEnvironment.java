@@ -370,7 +370,7 @@ public class TestEnvironment {
 	 */
 	protected void endTest(OrasiDriver driver, ITestResult testResults) {
 		if (runLocation.equalsIgnoreCase("remote") | runLocation.equalsIgnoreCase("sauce")) {
-			endSauceTest(testResults.getStatus());
+			endSauceTest(driver, testResults.getStatus());
 		}
 
 		endTest(driver);
@@ -383,9 +383,9 @@ public class TestEnvironment {
 	protected void endTest(OrasiDriver driver, ITestContext testResults) {
 		if (runLocation.equalsIgnoreCase("remote") | runLocation.equalsIgnoreCase("sauce")) {
 			if (testResults.getFailedTests().size() == 0) {
-				endSauceTest(ITestResult.SUCCESS);
+				endSauceTest(driver, ITestResult.SUCCESS);
 			} else {
-				endSauceTest(ITestResult.FAILURE);
+				endSauceTest(driver, ITestResult.FAILURE);
 			}
 		}
 		endTest(driver);
@@ -394,7 +394,7 @@ public class TestEnvironment {
 	/*
 	 * Report end of run status to Sauce LAbs
 	 */
-	private void endSauceTest(int result) {
+	private void endSauceTest(OrasiDriver driver, int result) {
 		Map<String, Object> updates = new HashMap<String, Object>();
 		updates.put("name", getTestName());
 
