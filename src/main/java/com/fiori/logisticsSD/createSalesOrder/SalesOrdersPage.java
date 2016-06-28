@@ -78,12 +78,16 @@ public class SalesOrdersPage extends BasePage{
     }
     
     public void selectItemByName(Object... args){
-	for(Object name : args){
-		driver.findLabel(By.xpath(xpathSidePanel + "//ul/li[contains(@class,'sapMObjLItem')]/.//div[@class='sapMTextMaxLine' and text()='" + name +"']")).click();
-		Sleeper.sleep(2000);
-		eleItemName.syncTextInElement(name.toString());
-		addProductToCart();
-	}
+    	String products = "";
+		for(Object name : args){
+	    	waitUntilLoadingComplete(driver);
+			driver.findLabel(By.xpath(xpathSidePanel + "//ul/li[contains(@class,'sapMObjLItem')]/.//div[@class='sapMTextMaxLine' and text()='" + name +"']")).click();
+			Sleeper.sleep(2000);
+			eleItemName.syncTextInElement(name.toString());
+			addProductToCart();
+			products = products.isEmpty() ? name.toString() : products + ";" + name.toString();
+		}
+		dataMap.put("Products" , products);
     }
     
     public void showOrders(){
@@ -108,6 +112,8 @@ public class SalesOrdersPage extends BasePage{
     
     public void addProductToCart(){
     	int itemsInCartPrior = Integer.valueOf(getCart().getText());
+    	waitUntilLoadingComplete(driver);
+    	btnAddToCart.syncEnabled();
     	btnAddToCart.click();
     	eleAddedItemsMessage.syncTextInElement("Your products are saved to the cart", 3, false);
     	int itemsInCartAfter = Integer.valueOf(getCart().getText());
@@ -115,6 +121,7 @@ public class SalesOrdersPage extends BasePage{
     	
     	String itemName = eleItemName.getText();
     	dataMap.put("Product [" + itemName + "] Details: Number", lblProductNumber.getText().replace("Product No.: ", ""));
+    	dataMap.put("Product [" + itemName + "] Details: Number of Units" , "1");
     	dataMap.put("Product [" + itemName + "] Details: Price Per Unit" , eleItemPricePerUnit.getText());
     	dataMap.put("Product [" + itemName + "] Details: Unit Description" , eleItemPriceUnitDescription.getText());
     }

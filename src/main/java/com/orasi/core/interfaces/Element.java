@@ -465,4 +465,6 @@ public interface Element extends WebElement, WrapsElement, Locatable {
 	 *  					syncTextInElement("text", 10, false)
 	 */
 	public boolean syncCssPropertyMatchesValue(String cssProperty, String regex, Object... args);
+
+	void onBlur();
 }

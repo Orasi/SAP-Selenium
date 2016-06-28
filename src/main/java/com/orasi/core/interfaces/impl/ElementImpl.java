@@ -69,7 +69,18 @@ public class ElementImpl implements Element {
 		new Actions(getWrappedDriver().getWebDriver()).moveToElement(element).click().perform();
 		TestReporter.interfaceLog("Focus Clicked [ <b>@FindBy: " + getElementLocatorInfo() + " </b>]");
 	}
+	@Override
+	public void onBlur(){
+	    String jsFireEvent = "if ('createEvent' in document) { " +
+		    " var evt = document.createEvent('HTMLEvents'); " +
+		    " evt.initEvent('change', false, true); " +
+		    " arguments[0].dispatchEvent(evt); " +
+		    " } else arguments[0].fireEvent('onblur');";
 
+	    try{
+		getWrappedDriver().executeJavaScript(jsFireEvent, getWrappedElement());
+	    }catch(WebDriverException wde){}		
+	}
 	/**
 	 * @see org.openqa.selenium.WebElement#getLocation()
 	 */

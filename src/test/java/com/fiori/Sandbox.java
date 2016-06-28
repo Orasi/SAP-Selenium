@@ -7,6 +7,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.fiori.logisticsSD.SelectCustomerPage;
+import com.fiori.logisticsSD.createSalesOrder.QuickCheckoutPage;
 import com.fiori.logisticsSD.createSalesOrder.SOShoppingCartPage;
 import com.fiori.logisticsSD.createSalesOrder.SalesOrdersPage;
 import com.orasi.utils.OrasiDriver;
@@ -86,6 +87,14 @@ public class Sandbox extends TestEnvironment {
     	shoppingCart.setDeliveryDate("10");
     	shoppingCart.updateItemQuantity("Sunny Sunny", "8");
     	shoppingCart.updateItemDelivery("REA Printer with battery", "45");
-    	System.out.println();
+    	driver.data().add(shoppingCart.storeInfo());
+    	shoppingCart.checkout();
+    	driver.data().printData();
+    	
+    	QuickCheckoutPage quickCheckout = new QuickCheckoutPage (driver);
+    	TestReporter.assertTrue(quickCheckout.pageLoaded(),"Loaded Shopping Cart successfully");
+    	TestReporter.assertTrue(quickCheckout.validateNumberOfItems(),"Number of items in cart matched");
+    	quickCheckout.validateDataInTable();
+    	driver.data().printData();
    }
 }

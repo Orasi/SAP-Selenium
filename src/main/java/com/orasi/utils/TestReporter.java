@@ -45,7 +45,9 @@ public class TestReporter {
         			!filename.contains("com.sun.proxy") && //
         			!filename.contains("org.testng.internal") &&
         			!filename.contains("java.util.concurrent.ThreadPoolExecutor") &&
-        			!filename.contains("com.orasi.utils.debugging"))
+        			!filename.contains("com.orasi.utils.debugging")&&
+        			!filename.contains("java.util.HashMap")&&
+        			!element.getMethodName().contains("lambda"))
         		{
         			path = element.getClassName()+"#"+element.getMethodName();
         			break;
